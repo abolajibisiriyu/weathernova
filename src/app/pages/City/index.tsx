@@ -35,9 +35,9 @@ const City: React.FC = (props) => {
       errorControlOnClick={_fetchCity}
     >
       <CityContainer>
-        {/* <Button as={Link} to="" className="clear back-btn">
+        <Button as={Link} to="" className="clear back-btn">
           Back to cities
-        </Button> */}
+        </Button>
         {city && (
           <>
             <WeatherInfo>
