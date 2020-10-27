@@ -24,7 +24,7 @@ const Notes: React.FC<Props> = (props) => {
   return (
     <NotesContainer>
       <h1>Notes</h1>
-      <NoteItems>
+      <NoteItems data-testid="note-items">
         {notes &&
           Object.keys(notes).map((noteId) => (
             <NoteItem
@@ -35,7 +35,7 @@ const Notes: React.FC<Props> = (props) => {
             />
           ))}
       </NoteItems>
-      <form onSubmit={onAddNote}>
+      <form onSubmit={onAddNote} data-testid="notes-form">
         <Textarea
           cols={50}
           rows={5}

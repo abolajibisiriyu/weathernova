@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-type loadScriptParams = {
+export type loadScriptParams = {
   url: string;
   onLoad?: () => void;
   onError?: (...arg: any) => void;

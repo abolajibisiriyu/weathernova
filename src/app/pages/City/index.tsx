@@ -42,6 +42,7 @@ const City: React.FC = (props) => {
           <>
             <WeatherInfo>
               <CityWeather
+                data-testid="city-weather"
                 city={city}
                 className="city-weather"
                 isFavourite={cityIsFavourite}

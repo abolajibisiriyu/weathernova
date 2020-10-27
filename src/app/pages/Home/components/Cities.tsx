@@ -27,7 +27,7 @@ export const Cities: React.FC = () => {
           {editMode ? "Cancel" : "Edit"}
         </Button>
       </h1>
-      <CitiesSection>
+      <CitiesSection data-testid="cities">
         {cityKeys.map((key) => {
           const city = cities[key];
           return (

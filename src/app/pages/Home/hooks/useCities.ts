@@ -8,6 +8,7 @@ import parseError from "app/utils/parseError";
 import { fetchCitiesWeatherInfo } from "app/store/cities/types";
 import { generateCityId } from "app/utils/city";
 import storage from "app/utils/storage";
+import useIsMountedRef from "app/hooks/useIsMountedRef";
 
 export default function useCities() {
   const { cities } = useContext(CitiesStoreContext);
@@ -15,10 +16,12 @@ export default function useCities() {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const mountedRef = useIsMountedRef();
+
   const fetchCitiesWeather = async () => {
     if (!Object.keys(cities).length) {
       // fetch default cities
-      console.log("here");
+      // console.log("here");
       setPending(true);
       const topPopulousCities = citiesData.sort((a, b) =>
         a.Name.localeCompare(b.Name)
@@ -42,12 +45,14 @@ export default function useCities() {
         const payload = transformCitiesArray(citiesResponse.map(mapCityName));
 
         storage.set("cities", payload);
-        dispatch({ type: fetchCitiesWeatherInfo.fulfilled, payload });
+        if (mountedRef.current) {
+          dispatch({ type: fetchCitiesWeatherInfo.fulfilled, payload });
+        }
       } catch (error) {
         const errorMessage = parseError(error);
-        setError(errorMessage);
+        if (mountedRef.current) setError(errorMessage);
       } finally {
-        setPending(false);
+        if (mountedRef.current) setPending(false);
       }
     } else {
       // fetch weather info for existing cities
@@ -72,12 +77,14 @@ export default function useCities() {
         };
         const payload = transformCitiesArray(citiesResponse.map(mapCityName));
         storage.set("cities", payload);
-        dispatch({ type: fetchCitiesWeatherInfo.fulfilled, payload });
+        if (mountedRef.current) {
+          dispatch({ type: fetchCitiesWeatherInfo.fulfilled, payload });
+        }
       } catch (error) {
         const errorMessage = parseError(error);
-        setError(errorMessage);
+        if (mountedRef.current) setError(errorMessage);
       } finally {
-        setPending(false);
+        if (mountedRef.current) setPending(false);
       }
     }
   };

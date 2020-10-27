@@ -22,9 +22,13 @@ export const FavouriteCities: React.FC = (props) => {
           You have no favourite city(s), click the star icon to add a city
         </h4>
       )}
-      <CitiesSection>
+      <CitiesSection data-testid="favourite-cities">
         {favourites.map((favourite) => (
-          <Link className="city-link" key={favourite} to={`/city?id=${favourite}`}>
+          <Link
+            className="city-link"
+            key={favourite}
+            to={`/city?id=${favourite}`}
+          >
             <CityWeather
               city={cities[favourite]}
               isFavourite={cityIsFavourite(cities[favourite], favourites)}

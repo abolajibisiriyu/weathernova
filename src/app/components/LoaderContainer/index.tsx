@@ -25,7 +25,7 @@ const LoaderContainer: React.FC<Props> = (props) => {
     <Container className={className}>
       {loading && (
         <LoaderBox className={loaderContainerClassName}>
-          <Loader size="60" strokeWidth="2" />
+          <Loader className="loader" size="60" strokeWidth="2" />
         </LoaderBox>
       )}
       {!loading && error && (
