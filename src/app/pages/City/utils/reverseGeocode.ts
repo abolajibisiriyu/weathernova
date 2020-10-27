@@ -12,7 +12,6 @@ export default function reverseGeocode({
 
   // console.log({ lon, lat });
   return new Promise((resolve, reject) => {
-    console.log("in promise");
     geocoder.geocode(
       { location: { lat, lng: lon } },
       (results: any[], status: any) => {

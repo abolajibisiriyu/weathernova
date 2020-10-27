@@ -111,5 +111,5 @@ export function useCity({ cityId, coords }: Props) {
     }
   }, [cities, cityId]);
 
-  return { city, cityIsFavourite: cityIsFav, fetchCity, pending, error };
+  return { city, cityIsFavourite: cityIsFav, init, pending, error };
 }

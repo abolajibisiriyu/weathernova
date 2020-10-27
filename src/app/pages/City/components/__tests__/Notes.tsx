@@ -2,7 +2,7 @@ import React from "react";
 import mockAxios from "axios";
 
 import { RouteContent } from "app/Routes";
-import { setup, waitFor, fireEvent, screen, act } from "__tests__/setup";
+import { setup, waitFor, fireEvent, screen } from "__tests__/setup";
 import storage from "app/utils/storage";
 
 const dummyCityWeatherData = {
