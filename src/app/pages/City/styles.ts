@@ -2,7 +2,14 @@ import styled from "styled-components";
 
 import colors from "app/styles/colors";
 
-export const CityContainer = styled.section``;
+export const CityContainer = styled.section`
+  .back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+
+    text-decoration: none;
+  }
+`;
 
 export const WeatherInfo = styled.section`
   display: flex;

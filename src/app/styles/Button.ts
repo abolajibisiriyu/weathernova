@@ -13,6 +13,9 @@ const Button = styled.button`
   &.danger {
     color: ${colors.TOMATO};
   }
+  &.clear {
+    background-color: ${colors.WHITE};
+  }
 `;
 
 export default Button;

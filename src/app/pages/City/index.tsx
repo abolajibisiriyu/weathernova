@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import CityWeather from "app/components/CityWeather";
 import Notes from "./components/Notes";
@@ -8,6 +8,7 @@ import DailyData from "./components/DailyData";
 import { useCity } from "./hooks/useCity";
 import NoteStore from "app/store/notes";
 import LoaderContainer from "app/components/LoaderContainer";
+import Button from "app/styles/Button";
 
 const City: React.FC = (props) => {
   const { search } = useLocation();
@@ -34,6 +35,9 @@ const City: React.FC = (props) => {
       errorControlOnClick={_fetchCity}
     >
       <CityContainer>
+        {/* <Button as={Link} to="" className="clear back-btn">
+          Back to cities
+        </Button> */}
         {city && (
           <>
             <WeatherInfo>
