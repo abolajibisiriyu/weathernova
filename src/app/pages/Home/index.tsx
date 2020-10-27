@@ -1,6 +1,7 @@
+import React, { useContext, useEffect } from "react";
+
 import LoaderContainer from "app/components/LoaderContainer";
 import { CitiesStoreContext } from "app/store/cities";
-import React, { useContext, useEffect } from "react";
 
 import Cities from "./components/Cities";
 import FavouriteCities from "./components/FavouriteCities";
