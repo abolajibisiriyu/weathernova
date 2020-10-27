@@ -21,7 +21,8 @@ export const InputBox = styled.div`
 
   position: relative;
 
-  &:focus-within {
+  &:focus-within,
+  &:active {
     border-color: ${colors.PRESTIGE_BLUE};
     background-color: ${colors.WHITE};
 

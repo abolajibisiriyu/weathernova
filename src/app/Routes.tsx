@@ -13,7 +13,6 @@ export const RouteContent = () => {
     if ("geolocation" in navigator) {
       var options: PositionOptions = {
         enableHighAccuracy: true,
-        timeout: 5000,
         maximumAge: 0,
       };
       navigator.geolocation.getCurrentPosition(

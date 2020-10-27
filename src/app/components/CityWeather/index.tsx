@@ -50,7 +50,7 @@ export const CityWeather: React.FC<Props> = (props) => {
         <p className="temperature">
           {city.current.temp} <Celcius />
         </p>
-        <p className="city text-36">{city.name}</p>
+        <p className="city text-28">{city.name}</p>
         <button className="favourite" onClick={_onFavouriteClicked}>
           <StarIcon className={`${isFavourite ? "favourite" : ""}`} />
         </button>

@@ -59,6 +59,9 @@ main {
 .text-24 {
   font-size: 1.2rem;
 }
+.text-28 {
+  font-size: 1.4rem;
+}
 .text-36 {
   font-size: 1.8rem;
 }

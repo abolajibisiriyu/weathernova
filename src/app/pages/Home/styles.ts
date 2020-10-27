@@ -24,10 +24,10 @@ export const CitiesSection = styled.section`
   gap: 40px; */
   display: grid;
   /* grid-template-columns: auto auto; */
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
   grid-gap: 40px;
 
-  & > a.city-link{
+  & > a.city-link {
     text-decoration: none;
     color: inherit;
   }

@@ -19,7 +19,7 @@ export const CityBox = styled.div`
   .temperature {
     position: relative;
 
-    font-size: 7rem;
+    font-size: 6rem;
 
     & > svg {
       width: 30px;
@@ -50,7 +50,8 @@ export const CityBox = styled.div`
       width: 30px;
       height: 30px;
       &.favourite {
-        & > path:nth-child(1), & > path:nth-child(2) {
+        & > path:nth-child(1),
+        & > path:nth-child(2) {
           fill: #2ed573;
         }
       }

@@ -13,6 +13,9 @@ const SearchInput: React.FC = (props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchVal, setSearchVal] = useState("");
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setSearchVal(e.target.value);
+
   const onClearInput = () => {
     setSearchVal("");
     inputRef.current?.focus();
@@ -68,7 +71,7 @@ const SearchInput: React.FC = (props) => {
           type="text"
           placeholder="Search city"
           value={searchVal}
-          onChange={(e) => setSearchVal(e.target.value)}
+          onChange={handleInputChange}
         />
         <button className="clear-btn" onClick={onClearInput}>
           <DeleteIcon />
