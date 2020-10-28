@@ -106,8 +106,10 @@ export function useCity({ cityId, coords }: Props) {
   useUpdateEffect(() => {
     if (cityId) {
       const _city = cities[cityId];
-      setCity(_city);
-      setCityIsFav(cityIsFavourite(_city, favourites));
+      if (_city) {
+        setCity(_city);
+        setCityIsFav(cityIsFavourite(_city, favourites));
+      }
     }
   }, [cities, cityId]);
 
