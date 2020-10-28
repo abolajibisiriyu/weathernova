@@ -2,6 +2,8 @@
 
 The only weather app you need 😎.
 
+[Live Demo](https://weathernova.vercel.app/)
+
 &nbsp;
 
 #### 💫 View the top 15 most populous cities.
