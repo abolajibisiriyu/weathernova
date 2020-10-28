@@ -52,7 +52,7 @@ const citiesReducer = (state = INITIAL_STATE, action: any): CitiesState => {
     case removeCity.fulfilled: {
       const { [action.payload]: removedCity, ...otherCities } = state.cities;
       let favourites = state.favourites.slice();
-      if (!cityIsFavourite(action.payload, favourites)) {
+      if (cityIsFavourite(state.cities[action.payload], favourites)) {
         const index = favourites.indexOf(action.payload);
         favourites = removeArrrayItem(index, state.favourites);
       }
