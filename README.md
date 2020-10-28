@@ -32,6 +32,8 @@ The only weather app you need 😎.
 
 &nbsp;
 
+The project uses [Open Weather Map](https://openweathermap.org/) as it's data source.
+
 ## Run app in developement
 
 `yarn start`
