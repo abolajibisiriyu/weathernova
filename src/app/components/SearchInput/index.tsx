@@ -59,6 +59,8 @@ const SearchInput: React.FC = (props) => {
       search: `id=${generateCityId(name, country)}&lat=${lat}&lon=${lon}`,
       state: autocompleteResult,
     });
+    setSearchVal("");
+    setAutocompleteResult(undefined);
   };
 
   return (
