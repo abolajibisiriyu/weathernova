@@ -20,7 +20,7 @@ export const RouteContent = () => {
           const coords = position.coords;
           history.push({
             pathname: "/city",
-            search: `lat=${coords.latitude}&lon=${coords.longitude}`,
+            search: `lat=${coords.latitude}&lon=${coords.longitude}&user_location`,
           });
         },
         (err) => {

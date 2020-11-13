@@ -7,6 +7,7 @@ import Cities from "./components/Cities";
 import FavouriteCities from "./components/FavouriteCities";
 import useCities from "./hooks/useCities";
 import { HomeContainer } from "./styles";
+import UserCities from "./components/UserCities";
 
 function Home() {
   const { fetchCitiesWeather, pending, error } = useCities();
@@ -24,6 +25,7 @@ function Home() {
       errorControlOnClick={fetchCitiesWeather}
     >
       <HomeContainer>
+        <UserCities />
         <FavouriteCities />
         <Cities />
       </HomeContainer>

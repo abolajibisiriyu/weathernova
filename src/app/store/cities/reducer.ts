@@ -1,8 +1,9 @@
-import { cityIsFavourite } from "app/utils/city";
+import { cityIsFavourite, isUserCity } from "app/utils/city";
 import removeArrrayItem from "app/utils/removeArrrayItem";
 import storage from "app/utils/storage";
 import {
   addCityToFavorites,
+  addUserCity,
   CitiesState,
   fetchCitiesWeatherInfo,
   fetchCityWeatherInfo,
@@ -13,6 +14,7 @@ import {
 export const INITIAL_STATE: CitiesState = {
   cities: { ...storage.get("cities") },
   favourites: storage.get("favourites") || [],
+  userLocations: storage.get("user_locations") || [],
   citiesRequest: {
     pending: false,
     success: false,
@@ -62,6 +64,15 @@ const citiesReducer = (state = INITIAL_STATE, action: any): CitiesState => {
         favourites,
       };
     }
+    case addUserCity.fulfilled:
+      if (!isUserCity(action.payload, state.userLocations)) {
+        return {
+          ...state,
+          userLocations: [...state.userLocations, action.payload],
+        };
+      }
+      return state;
+
     default:
       return state;
   }

@@ -33,6 +33,7 @@ export interface CitiesState {
     [key: string]: City;
   };
   favourites: string[];
+  userLocations: string[];
   citiesRequest: RequestState;
   cityRequest: RequestState;
 }
@@ -51,3 +52,5 @@ export const removeCityFromFavorites = createActionType(
 );
 
 export const removeCity = createActionType("remove_city");
+
+export const addUserCity = createActionType("add_user_city");

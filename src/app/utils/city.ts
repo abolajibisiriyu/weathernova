@@ -6,3 +6,7 @@ export const generateCityId = (...args: string[]) =>
 export const cityIsFavourite = (city: City, favouritesArray: string[]) => {
   return favouritesArray.findIndex((f) => f === city.id) !== -1;
 };
+
+export const isUserCity = (id: string, userLocationArray: string[]) => {
+  return userLocationArray.findIndex((l) => l === id) !== -1;
+};

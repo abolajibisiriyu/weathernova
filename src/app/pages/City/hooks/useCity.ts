@@ -3,7 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 
 import { CitiesStoreContext, CitiesDispatch } from "app/store/cities";
 import api from "app/api";
-import { City, fetchCityWeatherInfo } from "app/store/cities/types";
+import { addUserCity, City, fetchCityWeatherInfo } from "app/store/cities/types";
 import parseError from "app/utils/parseError";
 import { cityIsFavourite, generateCityId } from "app/utils/city";
 import useUpdateEffect from "app/hooks/useUpdateEffect";
@@ -22,6 +22,9 @@ export function useCity({ cityId, coords }: Props) {
 
   const mountedRef = useIsMountedRef();
 
+  const { state: locationState, search } = useLocation<any>();
+  const history = useHistory();
+
   const fetchCity = async (city: City) => {
     try {
       const response = await api.cityService.fetchCityWeather({
@@ -38,8 +41,13 @@ export function useCity({ cityId, coords }: Props) {
         name: city.name,
         country: city.country,
       };
-      if (mountedRef.current)
+      const searchParams = new URLSearchParams(search);
+      if (mountedRef.current) {
         dispatch({ type: fetchCityWeatherInfo.fulfilled, payload });
+        if(searchParams.has('user_location')){
+          dispatch({ type: addUserCity.fulfilled, payload: id });
+        }
+      }
     } catch (error) {
       const errorMessage = parseError(error);
       if (mountedRef.current) setError(errorMessage);
@@ -47,9 +55,6 @@ export function useCity({ cityId, coords }: Props) {
       if (mountedRef.current) setPending(false);
     }
   };
-
-  const { state: locationState } = useLocation<any>();
-  const history = useHistory();
 
   const [city, setCity] = useState<City>();
   const [cityIsFav, setCityIsFav] = useState(false);
@@ -79,9 +84,13 @@ export function useCity({ cityId, coords }: Props) {
             ...coords,
           };
           const { name, country, lat, lon } = tempCity;
+          const searchParams = new URLSearchParams(search);
+          searchParams.set("id", generateCityId(name, country));
+          searchParams.set("lat", lat.toString());
+          searchParams.set("lon", lon.toString());
           history.push({
             pathname: "/city",
-            search: `id=${generateCityId(name, country)}&lat=${lat}&lon=${lon}`,
+            search: searchParams.toString(),
             state: tempCity,
           });
         } catch (error) {
