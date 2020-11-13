@@ -99,6 +99,20 @@ export const CityBox = styled.div`
     }
   }
 
+  ${media.smallDesktop`
+      .temperature {
+        font-size: 3.5rem;
+      }
+      .city {
+        font-size: 1rem;
+      }
+      .date {
+        & > :last-child {
+          font-size: 1.2rem;
+        }
+      }
+  `};
+
   ${media.mobile`
     .temperature {
         font-size: 3rem;

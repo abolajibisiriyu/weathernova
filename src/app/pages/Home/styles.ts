@@ -34,6 +34,10 @@ export const CitiesSection = styled.section`
     color: inherit;
   }
 
+  ${media.smallDesktop`
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  `};
+
   ${media.mobile`
     grid-template-columns:auto;
     overflow-x: hidden;
