@@ -120,7 +120,7 @@ export function useCity({ cityId, coords }: Props) {
         setCityIsFav(cityIsFavourite(_city, favourites));
       }
     }
-  }, [cities, cityId]);
+  }, [cities, cityId, favourites]);
 
   return { city, cityIsFavourite: cityIsFav, init, pending, error };
 }

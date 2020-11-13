@@ -12,7 +12,7 @@ import storage from "app/utils/storage";
 
 export default function useCityActions() {
   const dispatch = useContext(CitiesDispatch);
-  const { favourites, cities } = useContext(CitiesStoreContext);
+  const { favourites, cities, userLocations } = useContext(CitiesStoreContext);
 
   const onFavouriteClicked = (city: City) => {
     if (!cityIsFavourite(city, favourites)) {
@@ -23,13 +23,14 @@ export default function useCityActions() {
   };
 
   const onRemovedClicked = (city: City) => {
-    dispatch({ type: removeCity.fulfilled , payload: city.id});
+    dispatch({ type: removeCity.fulfilled, payload: city.id });
   };
 
   useEffect(() => {
     storage.set("cities", cities);
     storage.set("favourites", favourites);
-  }, [cities, favourites]);
+    storage.set("user_locations", userLocations);
+  }, [cities, favourites, userLocations]);
 
   return { onFavouriteClicked, onRemovedClicked };
 }

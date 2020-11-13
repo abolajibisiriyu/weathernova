@@ -9,6 +9,7 @@ import { useCity } from "./hooks/useCity";
 import NoteStore from "app/store/notes";
 import LoaderContainer from "app/components/LoaderContainer";
 import Button from "app/styles/Button";
+import useCityActions from "../Home/hooks/useCityActions";
 
 const City: React.FC = (props) => {
   const { search } = useLocation();
@@ -22,6 +23,8 @@ const City: React.FC = (props) => {
     cityId,
     coords: { lon, lat },
   });
+
+  const { onFavouriteClicked } = useCityActions();
 
   const reInitialize = () => {
     init();
@@ -45,6 +48,7 @@ const City: React.FC = (props) => {
                 city={city}
                 className="city-weather"
                 isFavourite={cityIsFavourite}
+                onFavouriteClicked={onFavouriteClicked}
               />
               <DailyData city={city} />
             </WeatherInfo>
