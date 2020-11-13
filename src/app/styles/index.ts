@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
+
 import colors from "./colors";
+import media from "./media";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -31,11 +33,16 @@ button {
 .app {
   height: 100vh;
   width: 100%;
+  overflow-x: hidden;
 }
 main {
   height: calc(100vh - 80px);
   overflow: auto;
   padding: 20px 40px;
+
+  ${media.mobile`
+    padding: 20px;
+  `};
 }
 
 .main-loader {

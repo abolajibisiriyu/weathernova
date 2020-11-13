@@ -1,8 +1,10 @@
-import colors from "app/styles/colors";
 import styled from "styled-components";
 
+import colors from "app/styles/colors";
+import media from "app/styles/media";
+
 export const Nav = styled.nav`
-  height: 80px;
+  min-height: 80px;
   position: sticky;
   top: 0;
   background-color: ${colors.WHITE};
@@ -23,9 +25,17 @@ export const Nav = styled.nav`
     margin-right: 40px;
 
     & > svg {
-        height: 40px;
-        width: 40px;
-        margin-right: 5px;
+      height: 40px;
+      width: 40px;
+      margin-right: 5px;
     }
   }
+
+  ${media.mobile`
+    flex-wrap: wrap;
+    padding: 20px;
+    .logo {
+      margin-bottom: 10px;
+    }
+  `};
 `;

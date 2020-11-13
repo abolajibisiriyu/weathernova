@@ -42,6 +42,20 @@ export const Cities: React.FC = () => {
             </Link>
           );
         })}
+        {cityKeys.map((key) => {
+          const city = cities[key];
+          return (
+            <Link key={key} className="city-link" to={`/city?id=${key}`}>
+              <CityWeather
+                city={city}
+                showRemoveButton={editMode}
+                isFavourite={cityIsFavourite(city, favourites)}
+                onFavouriteClicked={onFavouriteClicked}
+                onRemoveClicked={onRemovedClicked}
+              />
+            </Link>
+          );
+        })}
       </CitiesSection>
     </>
   );

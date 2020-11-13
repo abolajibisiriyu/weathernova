@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import media from "app/styles/media";
+
 export const HomeContainer = styled.section`
   width: 100%;
   height: 100%;
@@ -31,4 +33,31 @@ export const CitiesSection = styled.section`
     text-decoration: none;
     color: inherit;
   }
+
+  ${media.mobile`
+    grid-template-columns:auto;
+    overflow-x: hidden;
+    & > a.city-link {
+      & > * {
+        .temperature {
+          font-size: 3rem;
+        }
+        .city {
+          font-size: 0.9rem;
+        }
+        .icon {
+          width: 80px;
+          height: 80px;
+        }
+        .description {
+          font-size: 0.7rem;
+        }
+        .date {
+          & > :last-child {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  `};
 `;
