@@ -63,6 +63,24 @@ const SearchInput: React.FC = (props) => {
     setAutocompleteResult(undefined);
   };
 
+  const [isOnline, setIsOnline] = React.useState(true);
+  const handleOnlineChange = () => {
+    console.log("Is online: ", navigator.onLine);
+    const _isOnline = navigator.onLine;
+    setIsOnline(_isOnline);
+    if (!_isOnline) setSearchVal("");
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("offline", handleOnlineChange);
+    window.addEventListener("online", handleOnlineChange);
+
+    return () => {
+      window.removeEventListener("offline", handleOnlineChange);
+      window.removeEventListener("online", handleOnlineChange);
+    };
+  });
+
   return (
     <SearchContainer onSubmit={onSubmit}>
       <InputBox>
@@ -71,15 +89,19 @@ const SearchInput: React.FC = (props) => {
         <input
           ref={inputRef}
           type="text"
-          placeholder="Search city"
+          placeholder={isOnline ? "Search city" : "You are offline, Reconnect to use search"}
           value={searchVal}
           onChange={handleInputChange}
+          disabled={!isOnline}
         />
-        <button className="clear-btn" onClick={onClearInput}>
+        <button
+          className="clear-btn"
+          onClick={onClearInput}
+        >
           <DeleteIcon />
         </button>
       </InputBox>
-      <Button type="submit">View</Button>
+      <Button type="submit" disabled={!isOnline}>View</Button>
     </SearchContainer>
   );
 };

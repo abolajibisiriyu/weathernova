@@ -6,6 +6,14 @@ export const SearchContainer = styled.form`
   width: 600px;
   display: flex;
   gap: 10px;
+
+  input,
+  button {
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
 `;
 
 export const InputBox = styled.div`
