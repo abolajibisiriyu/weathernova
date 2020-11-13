@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import colors from "app/styles/colors";
+import media from "app/styles/media";
 
 export const CityBox = styled.div`
   text-decoration: none;
@@ -97,4 +98,25 @@ export const CityBox = styled.div`
       /* margin-left: 10px; */
     }
   }
+
+  ${media.mobile`
+    .temperature {
+        font-size: 3rem;
+      }
+      .city {
+        font-size: 0.9rem;
+      }
+      .icon {
+        width: 80px;
+        height: 80px;
+      }
+      .description {
+        font-size: 0.7rem;
+      }
+      .date {
+        & > :last-child {
+          font-size: 1.1rem;
+        }
+      }
+  `};
 `;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import colors from "app/styles/colors";
+import media from "app/styles/media";
 
 export const NotesContainer = styled.section`
   margin-top: 40px;
@@ -29,6 +30,12 @@ export const NotesContainer = styled.section`
       border-radius: 2px;
     }
   }
+
+  ${media.tablet`
+    textarea {
+      width: 100%;
+    }
+  `};
 `;
 
 export const NoteItems = styled.div`

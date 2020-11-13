@@ -37,27 +37,5 @@ export const CitiesSection = styled.section`
   ${media.mobile`
     grid-template-columns:auto;
     overflow-x: hidden;
-    & > a.city-link {
-      & > * {
-        .temperature {
-          font-size: 3rem;
-        }
-        .city {
-          font-size: 0.9rem;
-        }
-        .icon {
-          width: 80px;
-          height: 80px;
-        }
-        .description {
-          font-size: 0.7rem;
-        }
-        .date {
-          & > :last-child {
-            font-size: 1.1rem;
-          }
-        }
-      }
-    }
   `};
 `;

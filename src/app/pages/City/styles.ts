@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 import colors from "app/styles/colors";
+import media from "app/styles/media";
 
 export const CityContainer = styled.section`
+  overflow-x: hidden;
   .back-btn {
     display: inline-block;
     margin-bottom: 20px;
@@ -18,6 +20,13 @@ export const WeatherInfo = styled.section`
   & > .city-weather {
     gap: 15px;
   }
+
+  ${media.tablet`
+    flex-wrap: wrap;
+    .city-weather {
+      width: 100%;
+    }
+  `};
 `;
 
 export const DailyData = styled.div`
@@ -67,4 +76,13 @@ export const DailyData = styled.div`
       }
     }
   }
+
+  ${media.tablet`
+    .row {
+      flex-wrap: wrap;
+    }
+    .data {
+      width: 100%;
+    }
+  `};
 `;
